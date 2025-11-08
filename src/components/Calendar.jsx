@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Calendar.css';
 import eventsData from '../data/fe-task.json';
 
 const Calendar = () => {
   const [currentDate] = useState(new Date(2025, 10, 1)); 
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     
@@ -17,6 +19,16 @@ const Calendar = () => {
   const getEventsForDate = (date) => {
     const dateString = date.toISOString().split('T')[0]; 
     return events.filter(event => event.dateVenue === dateString);
+  };
+
+  // Handle event click to navigate to detail page
+  const handleEventClick = (event) => {
+    const eventIndex = events.findIndex(e => 
+      e.dateVenue === event.dateVenue && 
+      e.homeTeam?.name === event.homeTeam?.name &&
+      e.awayTeam?.name === event.awayTeam?.name
+    );
+    navigate(`/event/${eventIndex}`);
   };
 
   
@@ -89,7 +101,11 @@ const Calendar = () => {
                       </div>
                       <div className="event-preview">
                         {dayInfo.events.map((event, eventIndex) => (
-                          <div key={eventIndex} className="event-item">
+                          <div 
+                            key={eventIndex} 
+                            className="event-item"
+                            onClick={() => handleEventClick(event)}
+                          >
                             <div className="event-time">
                               {event.timeVenueUTC ? event.timeVenueUTC.substring(0, 5) : 'TBA'}
                             </div>
