@@ -1,19 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Calendar.css';
-import eventsData from '../data/fe-task.json';
 
-const Calendar = () => {
+function Calendar ({ events = [] }) {
   const [currentDate] = useState(new Date(2025, 10, 1)); 
-  const [events, setEvents] = useState([]);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    
-    if (eventsData && eventsData.data) {
-      setEvents(eventsData.data);
-    }
-  }, []);
 
   // Get events for a specific date
   const getEventsForDate = (date) => {
@@ -94,30 +85,26 @@ const Calendar = () => {
                 <>
                   <div className="day-number">{dayInfo.day}</div>
                   {dayInfo.events.length > 0 && (
-                    <div className="events-container">
+                    <div>
                       <div className="event-indicator">
                         <span className="event-dot"></span>
-                        <span className="event-count">{dayInfo.events.length}</span>
+                        <span className="event-count">{dayInfo.events.length} event(s)</span>
                       </div>
-                      <div className="event-preview">
-                        {dayInfo.events.map((event, eventIndex) => (
-                          <div 
-                            key={eventIndex} 
-                            className="event-item"
-                            onClick={() => handleEventClick(event)}
-                          >
-                            <div className="event-time">
-                              {event.timeVenueUTC ? event.timeVenueUTC.substring(0, 5) : 'TBA'}
-                            </div>
-                            <div className="event-info">
-                              <div className="event-sport">{event.sport}</div>
-                              <div className="event-teams">
-                                {event.homeTeam?.name || 'TBD'} vs {event.awayTeam?.name || 'TBD'}
-                              </div>
-                            </div>
+                      {dayInfo.events.map((event, eventIndex) => (
+                        <div 
+                          key={eventIndex} 
+                          className="event-item"
+                          onClick={() => handleEventClick(event)}
+                        >
+                          <div className="event-time">
+                            {event.timeVenueUTC ? event.timeVenueUTC.substring(0, 5) : 'TBA'}
                           </div>
-                        ))}
-                      </div>
+                          <div className="event-sport">{event.sport}</div>
+                          <div className="event-teams">
+                            {event.homeTeam?.name || 'TBD'} vs {event.awayTeam?.name || 'TBD'}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </>
