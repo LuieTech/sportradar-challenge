@@ -3,8 +3,19 @@ body {
   font-family: Arial, sans-serif;
   background-color: #ffffff;
   color: #333;
+  -webkit-text-size-adjust: 100%;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  select {
+    min-height: 44px;
+  }
 }

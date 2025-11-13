@@ -234,20 +234,57 @@
 }
 
 @media (max-width: 480px) {
-  .date {
-    font-size: 18px;
+  .event-detail-container {
+    padding: 10px;
   }
 
-  .time {
+  .event-detail-card {
+    padding: 15px;
+  }
+
+  .back-button {
+    padding: 12px 20px;
     font-size: 16px;
   }
 
+  .competition-info h3 {
+    font-size: 18px;
+  }
+
+  .date {
+    font-size: 16px;
+  }
+
+  .time {
+    font-size: 14px;
+  }
+
   .team-name {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .team-details {
+    font-size: 0.85rem;
   }
 
   .score {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .vs-section {
+    font-size: 20px;
+  }
+
+  .venue-info {
+    padding: 8px;
+  }
+
+  .venue-info h4 {
+    font-size: 14px;
+  }
+
+  .info-item {
+    font-size: 14px;
   }
 }
 

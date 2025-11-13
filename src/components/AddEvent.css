@@ -60,6 +60,35 @@ button[type="button"] {
   
   .buttons button {
     width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-event-container {
+    margin: 5px;
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .add-event-container h2 {
+    font-size: 1.3rem;
+  }
+
+  form input,
+  form select {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  form label {
+    font-size: 14px;
+  }
+
+  .buttons button {
+    padding: 14px;
+    font-size: 16px;
   }
 }
 

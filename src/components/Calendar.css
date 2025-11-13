@@ -143,30 +143,31 @@
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .calendar-container {
-    padding: 10px;
-  }
-
-  .calendar-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .calendar-header h2 {
-    font-size: 1.2rem;
-  }
-
-  .calendar-day {
-    min-height: 80px;
     padding: 5px;
   }
 
+  .calendar-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .calendar-header h2 {
+    font-size: 1rem;
+  }
+
+  .calendar-day {
+    min-height: 90px;
+    padding: 3px;
+    font-size: 0.75rem;
+  }
+
   .day-number {
-    font-size: 0.9rem;
-    margin-bottom: 5px;
+    font-size: 0.85rem;
+    margin-bottom: 3px;
   }
 
   .weekday {
-    padding: 10px 3px;
-    font-size: 0.7rem;
+    padding: 8px 2px;
+    font-size: 0.65rem;
   }
 
   .event-indicator {
@@ -174,12 +175,12 @@
   }
 
   .event-dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
 
   .event-count {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 
   .event-preview {
@@ -187,33 +188,63 @@
   }
 
   .event-item {
-    font-size: 0.65rem;
-    padding: 4px 5px;
+    font-size: 0.6rem;
+    padding: 3px 4px;
+    margin-bottom: 3px;
+    min-height: 40px;
   }
 
   .event-time {
-    font-size: 0.65rem;
-    margin-bottom: 2px;
+    font-size: 0.6rem;
+    margin-bottom: 1px;
   }
 
   .event-sport {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 
   .event-teams {
-    font-size: 0.65rem;
-    line-height: 1.2;
+    font-size: 0.6rem;
+    line-height: 1.1;
   }
 }
 
 /* Very small mobile devices */
 @media (max-width: 360px) {
+  .calendar-container {
+    padding: 3px;
+  }
+
+  .calendar-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .calendar-header h2 {
+    font-size: 0.9rem;
+  }
+
   .calendar-day {
-    min-height: 70px;
+    min-height: 85px;
+    padding: 2px;
+  }
+
+  .day-number {
+    font-size: 0.75rem;
+  }
+
+  .weekday {
+    padding: 6px 1px;
+    font-size: 0.6rem;
+  }
+
+  .event-item {
+    font-size: 0.55rem;
+    padding: 2px 3px;
+    min-height: 35px;
   }
 
   .event-teams {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
