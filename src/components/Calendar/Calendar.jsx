@@ -8,16 +8,13 @@ function Calendar ({ events = [] }) {
   const [selectedSport, setSelectedSport] = useState('all');
   const [dateFilter, setDateFilter] = useState('all');
 
-  // Filter events based on selected criteria
   const filterEvents = (eventList) => {
     let filtered = eventList;
     
-    // Filter by sport
     if (selectedSport !== 'all') {
       filtered = filtered.filter(event => event.sport === selectedSport);
     }
     
-    // Filter by date range
     if (dateFilter === 'week1') {
       filtered = filtered.filter(event => {
         const day = new Date(event.dateVenue).getDate();
@@ -43,20 +40,17 @@ function Calendar ({ events = [] }) {
     return filtered;
   };
 
-  // Get events for a specific date
   const getEventsForDate = (date) => {
     const dateString = date.toISOString().split('T')[0]; 
     const dayEvents = events.filter(event => event.dateVenue === dateString);
     return filterEvents(dayEvents);
   };
 
-  // Get unique sports for filter dropdown
   const getUniqueSports = () => {
     const sports = events.map(event => event.sport).filter(Boolean);
     return [...new Set(sports)];
   };
 
-  // Handle event click to navigate to detail page
   const handleEventClick = (event) => {
     const eventIndex = events.findIndex(e => 
       e.dateVenue === event.dateVenue && 
@@ -66,27 +60,22 @@ function Calendar ({ events = [] }) {
     navigate(`/event/${eventIndex}`);
   };
 
-  
   const generateCalendarDays = () => {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     
-    // First day of the month
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
     
-    // Get the day of week for the first day (0 = Sunday, 6 = Saturday)
     const startingDayOfWeek = firstDay.getDay();
     const totalDays = lastDay.getDate();
     
     const days = [];
     
-    // Add empty cells for days before the first day of month
     for (let i = 0; i < startingDayOfWeek; i++) {
       days.push({ day: null, date: null, events: [] });
     }
     
-    // Add all days of the month
     for (let day = 1; day <= totalDays; day++) {
       const date = new Date(year, month, day);
       const dayEvents = getEventsForDate(date);

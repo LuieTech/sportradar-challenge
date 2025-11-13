@@ -5,7 +5,6 @@ import './AddEvent.css';
 function AddEvent({ onAddEvent }) {
   const navigate = useNavigate();
   
-  // Simple state for the form
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [sport, setSport] = useState('football');
@@ -15,13 +14,11 @@ function AddEvent({ onAddEvent }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Basic validation
     if (!date || !time || !homeTeam || !awayTeam) {
       alert('Please fill in all required fields!');
       return;
     }
 
-    // Create new event object
     const newEvent = {
       season: 2025,
       status: 'scheduled',

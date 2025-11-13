@@ -8,7 +8,6 @@ function EventDetail ({ events = [] }) {
   const [event, setEvent] = useState(null);
 
   useEffect(() => {
-    // Find the event by matching date and teams
     const eventIndex = parseInt(eventId);
     if (events && events[eventIndex]) {
       setEvent(events[eventIndex]);
