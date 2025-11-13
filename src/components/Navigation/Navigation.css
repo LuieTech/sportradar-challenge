@@ -41,7 +41,6 @@
   transform: scale(1.05);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;

@@ -15,7 +15,6 @@
   color: #666;
 }
 
-/* Filters section */
 .filters {
   display: flex;
   gap: 15px;
@@ -184,7 +183,6 @@
   margin-top: 3px;
 }
 
-/* Tablet responsiveness */
 @media (max-width: 768px) {
   .calendar-container {
     padding: 15px;
@@ -226,7 +224,6 @@
   }
 }
 
-/* Mobile responsiveness */
 @media (max-width: 480px) {
   .calendar-container {
     padding: 5px;
@@ -295,7 +292,6 @@
   }
 }
 
-/* Very small mobile devices */
 @media (max-width: 360px) {
   .calendar-container {
     padding: 3px;

@@ -216,7 +216,6 @@
   margin-bottom: 20px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .event-detail-container {
     padding: 15px;

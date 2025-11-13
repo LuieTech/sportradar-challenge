@@ -1,0 +1,48 @@
+AI Reflection - Sports Event Calendar Project
+
+HOW I USED AI
+
+I used Cursor as a coding companion during this project. The AI helped me primarily as a reference tool to remember CSS class names, HTML tags, and some React syntax when I couldn't recall them exactly. I would write the code structure and logic myself, and Cursor would assist me when I needed to remember specific naming conventions or CSS properties.
+
+WHAT WAS WRITTEN BY ME vs AI
+
+Written by Me:
+- Overall project structure and component organization
+- Core logic for calendar functionality
+- Event management system (adding, viewing, filtering)
+- Decision on using React Router for navigation
+- State management approach
+- Local storage implementation strategy
+- Layout decisions and component breakdown
+
+Generated or Influenced by AI:
+- Some CSS property names when I couldn't remember exact syntax
+- Reminders about React hooks usage patterns
+- Some boilerplate code structure suggestions
+- Help with date formatting logic
+
+HOW I EVALUATED AI SUGGESTIONS
+
+When Cursor suggested code, I would:
+1. Read through it to understand what it does
+2. Make sure it fits with my overall structure
+3. Test it in the browser
+4. Modify it if needed to match my vision
+5. Only keep suggestions that I understood completely
+
+TECHNICAL DECISIONS
+
+1. React Router: I chose to use React Router for navigation because it makes handling multiple pages easier without full page reloads.
+
+2. Local Storage: I implemented localStorage to persist events because it's simple and doesn't require a backend setup.
+
+3. Component Structure: I separated concerns into Calendar, EventDetail, AddEvent, and Navigation components to keep code organized.
+
+4. Filters: I implemented a simple sport filter using a select dropdown because it's straightforward and covers the basic requirement.
+
+5. CSS Approach: I used plain CSS files per component instead of a CSS framework to keep things simple and have more control.
+
+ONE IMPROVEMENT IF I HAD MORE TIME
+
+If I had more time, I would improve the calendar navigation to allow users to switch between different months (previous/next month buttons). Currently, the calendar only shows the current month, and users can't browse through other months to see events scheduled further in the future or past events. This would make the calendar more functional and allow better event planning across multiple months.
+

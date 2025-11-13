@@ -1,16 +1,68 @@
-# React + Vite
+# Sports Event Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple sports event calendar application built with React and Vite.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a sports event calendar that allows users to:
+- View events in a monthly calendar format
+- Click on events to see full details
+- Add new events through a form
+- Filter events by sport
+- Store events in local storage to persist between sessions
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Calendar View**: Displays events for the current month with event markers
+- **Event Details**: Click on any event to view full information including teams, time, sport, and competition
+- **Add Events**: Form to add new events with date, time, sport, and team information
+- **Filters**: Filter events by sport type
+- **Responsive Design**: Works on mobile, tablet, and desktop devices
+- **Local Storage**: Events are saved in browser storage and persist between sessions
 
-## Expanding the ESLint configuration
+## How to Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm run dev
+```
+
+3. Open your browser and navigate to the URL shown in the terminal (usually `http://localhost:5173`)
+
+## Technology Stack
+
+- React
+- React Router DOM
+- Vite
+- CSS
+
+## Project Structure
+
+- `/src/components/Calendar` - Calendar view component
+- `/src/components/EventDetail` - Event detail page
+- `/src/components/AddEvent` - Form to add new events
+- `/src/components/Navigation` - Navigation bar
+- `/src/data/fe-task.json` - Initial sports events data
+
+## Assumptions and Decisions
+
+1. **Data Structure**: Used the provided JSON structure with fields like homeTeam, awayTeam, sport, dateVenue, and timeVenueUTC
+2. **Event ID**: Generated unique IDs for new events using timestamps
+3. **Storage**: Used localStorage to persist events between sessions
+4. **Filters**: Implemented simple sport-based filtering
+5. **Navigation**: Used React Router for page navigation
+6. **Responsive Design**: Used CSS media queries for mobile/tablet/desktop views
+7. **Date Handling**: Events are displayed based on their dateVenue field
+
+## Building for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist` folder.
