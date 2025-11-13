@@ -15,6 +15,52 @@
   color: #666;
 }
 
+/* Filters section */
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.filter-group select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.filter-group select:hover {
+  border-color: #888;
+}
+
+.clear-filters {
+  padding: 5px 15px;
+  background: #666;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-filters:hover {
+  background: #444;
+}
+
 .calendar {
   border: 1px solid #ccc;
 }
@@ -40,6 +86,11 @@
   border: 1px solid #ccc;
   min-height: 100px;
   padding: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.calendar-day:hover {
+  transform: scale(1.02);
 }
 
 .calendar-day.empty {
@@ -48,6 +99,16 @@
 
 .calendar-day.has-events {
   background: #ffffcc;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .day-number {
@@ -65,6 +126,16 @@
   background: red;
   border-radius: 50%;
   display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .event-count {
@@ -79,10 +150,25 @@
   font-size: 0.75rem;
   cursor: pointer;
   background: white;
+  transition: all 0.3s ease;
+  animation: slideIn 0.4s;
 }
 
 .event-item:hover {
   background: #f0f0f0;
+  transform: translateX(3px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .event-time {

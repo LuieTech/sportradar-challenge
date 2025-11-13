@@ -1,5 +1,15 @@
 .event-detail-container {
   padding: 20px;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .event-detail-header {
@@ -12,10 +22,13 @@
   color: white;
   border: 1px solid #333;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .back-button:hover {
   background-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .status-badge {
@@ -36,6 +49,18 @@
 .event-detail-card {
   border: 2px solid #333;
   padding: 20px;
+  animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .event-detail-header-info {
@@ -107,10 +132,32 @@
 .score {
   font-size: 2rem;
   font-weight: bold;
+  animation: scaleIn 0.7s ease;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .team-score.winner {
   color: green;
+  animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 .vs-section {

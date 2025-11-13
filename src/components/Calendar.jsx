@@ -5,11 +5,55 @@ import './Calendar.css';
 function Calendar ({ events = [] }) {
   const [currentDate] = useState(new Date(2025, 10, 1)); 
   const navigate = useNavigate();
+  const [selectedSport, setSelectedSport] = useState('all');
+  const [dateFilter, setDateFilter] = useState('all');
+
+  // Filter events based on selected criteria
+  const filterEvents = (eventList) => {
+    let filtered = eventList;
+    
+    // Filter by sport
+    if (selectedSport !== 'all') {
+      filtered = filtered.filter(event => event.sport === selectedSport);
+    }
+    
+    // Filter by date range
+    if (dateFilter === 'week1') {
+      filtered = filtered.filter(event => {
+        const day = new Date(event.dateVenue).getDate();
+        return day >= 1 && day <= 7;
+      });
+    } else if (dateFilter === 'week2') {
+      filtered = filtered.filter(event => {
+        const day = new Date(event.dateVenue).getDate();
+        return day >= 8 && day <= 14;
+      });
+    } else if (dateFilter === 'week3') {
+      filtered = filtered.filter(event => {
+        const day = new Date(event.dateVenue).getDate();
+        return day >= 15 && day <= 21;
+      });
+    } else if (dateFilter === 'week4') {
+      filtered = filtered.filter(event => {
+        const day = new Date(event.dateVenue).getDate();
+        return day >= 22;
+      });
+    }
+    
+    return filtered;
+  };
 
   // Get events for a specific date
   const getEventsForDate = (date) => {
     const dateString = date.toISOString().split('T')[0]; 
-    return events.filter(event => event.dateVenue === dateString);
+    const dayEvents = events.filter(event => event.dateVenue === dateString);
+    return filterEvents(dayEvents);
+  };
+
+  // Get unique sports for filter dropdown
+  const getUniqueSports = () => {
+    const sports = events.map(event => event.sport).filter(Boolean);
+    return [...new Set(sports)];
   };
 
   // Handle event click to navigate to detail page
@@ -60,6 +104,41 @@ function Calendar ({ events = [] }) {
       <div className="calendar-header">
         <h1>Sports Event Calendar</h1>
         <h2>{monthName}</h2>
+      </div>
+      
+      <div className="filters">
+        <div className="filter-group">
+          <label>Sport:</label>
+          <select value={selectedSport} onChange={(e) => setSelectedSport(e.target.value)}>
+            <option value="all">All Sports</option>
+            {getUniqueSports().map(sport => (
+              <option key={sport} value={sport}>{sport}</option>
+            ))}
+          </select>
+        </div>
+        
+        <div className="filter-group">
+          <label>Date Range:</label>
+          <select value={dateFilter} onChange={(e) => setDateFilter(e.target.value)}>
+            <option value="all">All Dates</option>
+            <option value="week1">Week 1 (1-7)</option>
+            <option value="week2">Week 2 (8-14)</option>
+            <option value="week3">Week 3 (15-21)</option>
+            <option value="week4">Week 4 (22+)</option>
+          </select>
+        </div>
+        
+        {(selectedSport !== 'all' || dateFilter !== 'all') && (
+          <button 
+            className="clear-filters"
+            onClick={() => {
+              setSelectedSport('all');
+              setDateFilter('all');
+            }}
+          >
+            Clear Filters
+          </button>
+        )}
       </div>
       
       <div className="calendar">
